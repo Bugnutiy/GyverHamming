@@ -55,7 +55,7 @@ public:
         memset(buffer, 0, bytes);                           // чисти чисти
         int ptrCount = 0;
         
-        for (int chunk = 0; chunk < chunkAmount; chunk++) { // каждый чанк
+        for (uint32_t chunk = 0; chunk < chunkAmount; chunk++) { // каждый чанк
             // 1. Заполняем дату, минуя ячейки Хэмминга (0,1,2,4,8...)
             for (uint8_t i = 0; i < chunkSizeB; i++) {
                 if ((i & (i - 1)) != 0) {                   // проверка на степень двойки
@@ -116,7 +116,7 @@ public:
             }
         }
 
-        for (int chunk = 0; chunk < chunkAmount; chunk++) {   // каждый чанк
+        for (uint32_t chunk = 0; chunk < chunkAmount; chunk++) {   // каждый чанк
             // 2. Получаем хэш ошибки и общий parity
             uint8_t sum = 0, count = 0;
             for (uint8_t i = 0; i < chunkSizeB; i++) {
